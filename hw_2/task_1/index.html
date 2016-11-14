@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 1</title>
+</head>
+<body>
+	<p>
+		Написать функцию 'isAllTrue', которая принимает 2 параметра - 'source' и 'filterFn'
+		source - массив
+		'filterFn' - фильтрующая функция <br>
+
+		Если фильтрующая функция вернет 'true' для ВСЕХ элементов массива, то и сама 'isAllTrue' вернет 'true'<br>
+
+		Если фильтрующая функция вернет 'false' хотя бы для одного элемента массива, то и сама 'isAllTrue' вернет 'false'<br>
+	</p>
+
+
+<p>
+пример:<br>
+
+var allNumbers = [1, 2, 4, 5, 6, 7, 8],<br>
+
+someNumbers = [1, 2, 'привет', 4, 5, 'loftschool', 6, 7, 8],<br>
+
+noNumbers = ['это', 'массив', 'без', 'чисел'];<br><br>
+
+
+
+function isNumber(val) {<br>
+
+  return typeof val === 'number';<br>
+
+}<br><br>
+</p>
+
+<p>
+console.log(isAllTrue(allNumbers, isNumber)); //вернет true<br>
+
+console.log(isAllTrue(someNumbers, isNumber)); //вернет false<br>
+
+console.log(isAllTrue(noNumbers, isNumber)); //вернет false<br>
+
+нельзя использовать методы для работы с массивами.<br>
+
+Выбрасывать и обрабатывать исключение, если в 'source' пустой массив.
+</p>
+<script type="text/javascript">
+
+/// Задача 1
+	
+var allNumbers = [1, 2, 4, 5, 6, 7, 8],
+	someNumbers = [1, 2, 'привет', 4, 5, 'loftschool', 6, 7, 8],
+	noNumbers = ['это', 'массив', 'без', 'чисел']
+	empty = [];
+
+
+function isNumber(val) {
+  return typeof val === 'number';
+}
+
+function isAllTrue(source, filterFn){
+	var err = true;
+	for(var item in source){
+		err = false;
+		if(!filterFn(source[item])){
+			return false;
+		}
+	}
+	if (err) { throw new Error(1);}
+	return true;
+}
+
+try{
+ 	console.log(isAllTrue(empty, isNumber));
+}catch(e){
+	console.info('Массив пустой (');
+	console.log(e);
+}
+
+
+console.log(isAllTrue(allNumbers, isNumber)); //вернет true
+console.log(isAllTrue(someNumbers, isNumber)); //вернет false
+console.log(isAllTrue(noNumbers, isNumber)); //вернет false
+</script>
+</body>
+</html>
