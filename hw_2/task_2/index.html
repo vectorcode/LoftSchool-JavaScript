@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 2</title>
+</head>
+<body>
+
+	<p>ДЗ - 2
+
+	Написать фукнцию 'isSomeTrue', которая принимает 2 параметра - 'source' и 'filterFn'
+	'source' - массив<br>
+	'filterFn' - фильтрующая функция<br>
+	Если фильтрующая функция вернет 'true' хотя бы для одного элемента массива, то и сама 'isSomeTrue' вернет 'true'<br>
+	Если фильтрующая функция вернет 'false' для ВСЕХ элементов массива, то и сама 'isSomeTrue' вернет 'false'<br>
+	</p>
+
+
+	<p>Всё должно быть реализовано с использованием чистого js (не используя сторонние библиотеки).
+	Так же, нельзя использовать методы для работы с массивами.<br>
+
+	</p>
+
+	<p>пример:<br>
+	console.log(isSomeTrue(allNumbers, isNumber)); //вернет true<br>
+	console.log(isSomeTrue(someNumbers, isNumber)); //вернет true<br>
+	console.log(isSomeTrue(noNumbers, isNumber)); //вернет false<br>
+	</p>
+	<script type="text/javascript">
+		/// Задача 2
+
+	var allNumbers = [1, 2, 4, 5, 6, 7, 8],
+		someNumbers = [1, 2, 'привет', 4, 5, 'loftschool', 6, 7, 8],
+		noNumbers = ['это', 'массив', 'без', 'чисел']
+		empty = [];
+
+
+	function isNumber(val) {
+	  return typeof val === 'number';
+	}
+
+	function isSomeTrue(source, filterFn){
+		var err = true;
+		for(var item in source){
+			err = false;
+			if(filterFn(source[item])){
+				return true;
+			}
+
+		}
+		if (err) { throw new Error(1);}
+		return false;
+	}
+
+	try{
+	 	console.log(isSomeTrue(empty, isNumber));
+	}catch(e){
+		console.info('Массив пустой (');
+		console.log(e);
+	}
+
+	console.log(isSomeTrue(allNumbers, isNumber)); //вернет true
+	console.log(isSomeTrue(someNumbers, isNumber)); //вернет true
+	console.log(isSomeTrue(noNumbers, isNumber)); //вернет false
+
+	</script>
+</body>
+</html>
