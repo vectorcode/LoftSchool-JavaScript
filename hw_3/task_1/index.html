@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 1</title>
+</head>
+<body>
+	<h1>ДЗ - 1:</h1>
+
+<p>написать аналоги методов для работы с массивами:<br>
+
+forEach, filter, map, slice, reduce, splice  пример:</p>
+
+
+
+<p>let array = [1, 2, 3, 4, 5, 6];<br>
+
+forEach(array, item => console.log(item));<br>
+
+let greaterThan4 = filter(array, item => item > 4);<br>
+
+let sqare = map(array, item => item*item);</p>
+
+<p>Описание того, как работают эти методы, есть на Mozilla Developer Network и в бесплатных видеоуроках LoftBlog/LoftSchool.<p>
+
+<p>Реализация функции splice является задачей со звездочкой.<br>
+
+Ее выполнение не обязательно, но желательно.</p>
+
+<p>Внимание:<br><br>
+
+в данном задании запрещено использовать встроенные методы для работы с массивами! Разрешено использовать стандартные <br>
+
+операторы 'for/for-in/while/if`' (и т.д.) и свойство 'length'</p>
+
+
+</body>
+
+
+<script type="text/javascript">
+	let array = [1, 2, 3, 4, 5, 6];
+
+	/*forEach*/
+	function ForEach(arr, fn){
+		for (var i = 0; i < arr.length; i++) {
+			fn(arr[i]);
+		}
+	}
+
+	ForEach(array, item => console.log(item));
+
+	/* filter */
+	function filter(arr, fn){
+		var newArr = [],
+			ind = 0;
+		for (var i = 0; i < arr.length; i++) {
+			if(fn(arr[i])){
+				newArr[ind] = arr[i];
+				ind++;
+			}
+		}
+		return newArr;
+	}
+
+	let greaterThan4 = filter(array, item => item > 4);
+	console.log('filter ', greaterThan4);
+
+	/*map*/
+	function map(arr, fn){
+		var newArr = [];
+		for (var i = 0; i < arr.length; i++) {
+			newArr[i] = fn(arr[i]);
+		}
+		return newArr;
+	}
+
+	let sqare = map(array, item => item*item);
+	console.log('map ', sqare);
+
+	
+
+</script>
+</html>
