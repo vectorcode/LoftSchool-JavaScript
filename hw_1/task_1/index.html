@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ДЗ 1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arrTexts = ['я', 'умею', 'писать', 'рекурсивные', 'функции'];
+
+		function consoleRec(arr){
+		  var ind = 0;
+		      
+		  function recursion(){
+		    if(arr.length > ind){
+		      console.log(arr[ind]);
+		      ind++;
+		      recursion();
+		    }
+		  }
+		   recursion();
+		 }
+		consoleRec(arrTexts);
+	</script>
+</body>
+</html>
